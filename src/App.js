@@ -6,6 +6,7 @@ import Helmet from 'react-helmet'
 // import createHistory from 'history/createBrowserHistory'
 // import store from './redux/store'
 
+import { ThemeProvider } from '@naveteam/saturn'
 import Loader from 'components/Loader'
 
 import { useUser } from 'context/user-context'
@@ -44,13 +45,15 @@ const App = () => {
 
   return (
     // <Provider store={store}>
-    <Theme>
-      <Helmet titleTemplate='Nave.rs | %s' />
-      <GlobalStyle />
-      <Suspense fallback={<Loader />}>
-        <Router>{user ? <AuthenticatedApp /> : <UnauthenticatedApp />}</Router>
-      </Suspense>
-    </Theme>
+    <ThemeProvider>
+      <Theme>
+        <Helmet titleTemplate='Nave.rs | %s' />
+        <GlobalStyle />
+        <Suspense fallback={<Loader />}>
+          <Router>{user ? <AuthenticatedApp /> : <UnauthenticatedApp />}</Router>
+        </Suspense>
+      </Theme>
+    </ThemeProvider>
     // </Provider>
   )
 }

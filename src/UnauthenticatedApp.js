@@ -5,8 +5,8 @@ import Login from 'routes/Login'
 
 const UnauthenticatedApp = () => (
   <Switch>
-    <Route path='/login' component={Login} />
-    <Redirect to='/login' />
+    <Route path='/' component={Login} />
+    <Redirect to='/' />
   </Switch>
 )
 
